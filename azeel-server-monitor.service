@@ -1,0 +1,20 @@
+[Unit]
+Description=Azeel Server Monitor (v1)
+After=network.target
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/Azeel.net/AzeelServerMonitor
+Environment=MONITOR_CONFIG=/Azeel.net/Local/server-minitor.json
+# NOTE: system node is v6; this is a copy of a working Node 20 binary
+# (glibc 2.26 box can't run official Node 20 builds). If it ever breaks,
+# re-copy from the newest /home/ec2-user/.cursor-server/bin/linux-x64/*/node.
+ExecStart=/usr/local/bin/node-azeel-monitor /Azeel.net/AzeelServerMonitor/dist/index.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
