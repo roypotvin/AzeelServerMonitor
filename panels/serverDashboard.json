@@ -1,0 +1,33 @@
+{
+  "_spec": {
+    "pan_name": "serverDashboard",
+    "pan_type": "BORDER",
+    "pan_title": "Server Monitor",
+    "app_key": "ServerMonitor",
+    "note": "Default panel: list west, detail center, activity south"
+  },
+  "panels": {
+    "north": { "panUid": null, "name": "", "height": "" },
+    "west": { "panUid": "serverList", "name": "", "width": "320" },
+    "center": { "panUid": "serverDetail", "name": "" },
+    "east": { "panUid": null, "name": "", "width": "" },
+    "south": { "panUid": "serverActivity", "name": "", "height": "280" }
+  },
+  "settings": {
+    "prop": {
+      "headerTitle": "Server Monitor",
+      "headerIcon": "server",
+      "headerClose": "T",
+      "width": "",
+      "hidden": "F",
+      "colorStyle": null,
+      "colorStyleTop": "LIGHT",
+      "colorStyleBottom": null,
+      "cssClassTop": "",
+      "cssClassBottom": "",
+      "enableResize": "F"
+    }
+  },
+  "dataSrc": { "cellActions": [], "cellActions1": [], "cellActions2": [] },
+  "menuTop": []
+}

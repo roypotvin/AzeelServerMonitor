@@ -1,0 +1,62 @@
+{
+  "_spec": {
+    "pan_name": "serverList",
+    "pan_type": "GRID",
+    "pan_title": "Servers",
+    "app_key": "ServerMonitor"
+  },
+  "dataSrc": {
+    "class": "ServerMonitorServers",
+    "filters": [],
+    "cols": {
+      "hostname": { "inc": "T", "order": 1, "hidden": "F" },
+      "status": { "inc": "T", "order": 2, "hidden": "F" },
+      "stat_ts": { "inc": "T", "order": 3, "hidden": "T" },
+      "load1": { "inc": "T", "order": 4, "hidden": "F" },
+      "cpu_usage_pct": { "inc": "T", "order": 5, "hidden": "T" },
+      "mem_used_pct": { "inc": "T", "order": 6, "hidden": "F" },
+      "swap_used_pct": { "inc": "T", "order": 7, "hidden": "F" },
+      "worst_disk_pct": { "inc": "T", "order": 8, "hidden": "T" },
+      "proc_count": { "inc": "T", "order": 9, "hidden": "T" }
+    },
+    "colSort": "hostname",
+    "colSort2": null,
+    "sortDir": "ASC",
+    "sortDir2": null,
+    "cellActions": [],
+    "cellActions1": [],
+    "cellActions2": [],
+    "rowActions": {}
+  },
+  "panelEvents": {
+    "azSmartSelectSingle": {
+      "params": "item",
+      "code": "if (!item || !item.hostname) return;\nlet detail = azApp.panel('serverDetail');\nif (detail && detail.replaceApp) detail.replaceApp('serverDetail', { hostname: item.hostname });\nlet act = azApp.panel('serverActivity');\nif (act) act.filterChange('hostname', item.hostname);"
+    },
+    "onDataLoaded": {
+      "isCustom": "T",
+      "params": "data",
+      "code": "let pan = this;\nif (!pan || !pan.getMiscData || pan.getMiscData('picked')) return;\nlet rows = data && data.data ? data.data : [];\nif (!rows.length || !rows[0].hostname) return;\npan.addMiscData('picked', 'T');\npan.activateItem(rows[0], true);"
+    }
+  },
+  "settings": {
+    "prop": {
+      "headerTitle": "Servers",
+      "headerIcon": "server",
+      "headerClose": "F",
+      "filterView": "F",
+      "instaSearch": "T",
+      "pagerLimit": "100",
+      "enableExport": "F",
+      "enableCheckbox": "F",
+      "enableRowDeleteApi": "F",
+      "enableAddApi": "F",
+      "enableRowEditApi": "F",
+      "checkInitialLoad": "F",
+      "itemPad": "small",
+      "colorStyleTop": "LIGHT",
+      "width": "260"
+    }
+  },
+  "menuTop": []
+}

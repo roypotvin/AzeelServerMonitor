@@ -1,0 +1,38 @@
+{
+  "_spec": {
+    "pan_name": "serverDetail",
+    "pan_type": "HTML",
+    "pan_title": "Server Details",
+    "app_key": "ServerMonitor"
+  },
+  "settings": {
+    "prop": {
+      "useTemplate": "Default",
+      "headerTitle": "Server Details",
+      "headerIcon": "server",
+      "headerClose": "F",
+      "enableGrid": "T",
+      "autoheight": "F",
+      "hidden": "F",
+      "colorStyle": "LIGHT",
+      "width": ""
+    }
+  },
+  "templates": {
+    "srvDtl1791154000": {
+      "name": "Default",
+      "device": "Desktop",
+      "html": "<div style=\"padding: 10px;\">\n<div style=\"font-size: 150%; font-weight: bold; padding: 0 0 5px 5px;\">{{srv.hostname}}</div>\n<div style=\"font-size: 90%; color: #666; padding: 0 0 10px 5px;\">Status: {{srv.status}} &nbsp; Last push: {{srv.stat_ts}} &nbsp; Uptime: {{srv.uptime_sec}}s</div>\n<table cellspacing=\"3\" cellpadding=\"4\" width=\"100%\">\n<tr><td width=\"25%\" style=\"background: #f0f0ed; font-weight: 800;\">Load (1/5/15)</td><td>{{srv.load1}} / {{srv.load5}} / {{srv.load15}} ({{srv.cpus}} cpus)</td></tr>\n<tr><td style=\"background: #f0f0ed; font-weight: 800;\">CPU</td><td>{{srv.cpu_model}} — {{srv.cpu_usage_pct}}% used</td></tr>\n<tr><td style=\"background: #f0f0ed; font-weight: 800;\">Memory</td><td>{{srv.mem_used_mb}} / {{srv.mem_total_mb}} MB ({{srv.mem_used_pct}}%) — {{srv.mem_avail_mb}} MB avail</td></tr>\n<tr><td style=\"background: #f0f0ed; font-weight: 800;\">Swap</td><td>{{srv.swap_used_mb}} / {{srv.swap_total_mb}} MB ({{srv.swap_used_pct}}%)</td></tr>\n<tr><td style=\"background: #f0f0ed; font-weight: 800;\">Disk / Inodes</td><td>{{srv.worst_disk_pct}}% / {{srv.worst_inode_pct}}% worst</td></tr>\n<tr><td style=\"background: #f0f0ed; font-weight: 800;\">Network</td><td>{{srv.ips}} (public: {{srv.public_ip}})</td></tr>\n<tr><td style=\"background: #f0f0ed; font-weight: 800;\">Processes</td><td>{{srv.proc_count}} total</td></tr>\n</table>\n<br>\n<div style=\"font-weight: bold; font-size: 140%;\">Top processes</div>\n<pre style=\"white-space: pre-wrap; font-size: 85%;\">{{srv.top_procs}}</pre>\n<div style=\"font-weight: bold; font-size: 140%;\">Cursor builds</div>\n<pre style=\"white-space: pre-wrap; font-size: 85%;\">{{srv.cursor_builds}}</pre>\n<div style=\"font-weight: bold; font-size: 140%;\">Recent OOM</div>\n<pre style=\"white-space: pre-wrap; font-size: 85%;\">{{srv.oom_recent}}</pre>\n</div>\n"
+    }
+  },
+  "inputVars": {
+    "1590524920-srvHost": {
+      "name": "hostname",
+      "required": "F",
+      "class": "ServerMonitorServers",
+      "objName": "srv",
+      "type": "apiLookup"
+    }
+  },
+  "dataSrc": { "cellActions": [], "cellActions1": [], "cellActions2": [] }
+}

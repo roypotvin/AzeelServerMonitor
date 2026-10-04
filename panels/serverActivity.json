@@ -1,0 +1,54 @@
+{
+  "_spec": {
+    "pan_name": "serverActivity",
+    "pan_type": "GRID",
+    "pan_title": "Recent Activity",
+    "app_key": "ServerMonitor"
+  },
+  "dataSrc": {
+    "class": "AzeelServerMonitorIssues",
+    "filters": {
+      "hostFilter": {
+        "column": "hostname",
+        "comp": "eq",
+        "val": "",
+        "fixed": "F",
+        "visible": "F",
+        "allowNull": "T"
+      }
+    },
+    "cols": {
+      "issue_ts": { "inc": "T", "order": 1, "hidden": "F" },
+      "hostname": { "inc": "T", "order": 2, "hidden": "T" },
+      "level": { "inc": "T", "order": 3, "hidden": "F" },
+      "source": { "inc": "T", "order": 4, "hidden": "F" },
+      "message": { "inc": "T", "order": 5, "hidden": "F" }
+    },
+    "colSort": "issue_ts",
+    "colSort2": null,
+    "sortDir": "DESC",
+    "sortDir2": null,
+    "cellActions": [],
+    "cellActions1": [],
+    "cellActions2": [],
+    "rowActions": {}
+  },
+  "settings": {
+    "prop": {
+      "headerTitle": "Recent Activity",
+      "headerIcon": "list",
+      "headerClose": "F",
+      "filterView": "F",
+      "pagerLimit": "100",
+      "enableExport": "F",
+      "enableCheckbox": "F",
+      "enableRowDeleteApi": "F",
+      "enableAddApi": "F",
+      "enableRowEditApi": "F",
+      "checkInitialLoad": "F",
+      "colorStyleTop": "LIGHT",
+      "colorStyleBottom": "LIGHT"
+    }
+  },
+  "menuTop": []
+}
